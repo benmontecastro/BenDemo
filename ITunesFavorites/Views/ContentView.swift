@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var searchString: String = ""
+    @ObservedObject var favorites = Favorites()
+    
+    @State var searchString: String = ""
     @State var tracks: [Track] = []
+    @State var isFavoritesOnly = false
 
     let trackQuery = TrackQuery()
     func loadTracks() {
@@ -30,7 +33,13 @@ struct ContentView: View {
                         VStack {
                             HStack {
                                 Text("\(track.trackName)")
+
                                 Spacer()
+                                
+                                if self.favorites.contains(track) {
+                                    Image(systemName: "star.fill")
+                                        .foregroundColor(.green)
+                                }
                             }
                             HStack {
                                 Text("\(track.genre)")
@@ -44,24 +53,48 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationBarTitle("Tracks")
+            .navigationBarTitle("Tracks", displayMode: .inline)
+            .navigationBarItems(trailing:
+                Button(action: {
+                    print("Show Favorites")
+                }) {
+                    Image(systemName: "star.fill").imageScale(.large)
+                        .foregroundColor(.green)
+                }
+            )
             .onAppear(perform: loadTracks)
         }
-
+        .environmentObject(favorites)
+        
         Spacer()
     }
 }
 
 struct DetailView: View {
-  let track: Track
-  var body: some View {
-    VStack {
-        Text(track.description)
-            .multilineTextAlignment(.leading)
-            .padding()
-        Spacer()
+    @EnvironmentObject var favorites: Favorites
+    let track: Track
+    var body: some View {
+        VStack {
+            Text("\(track.trackName)")
+                .font(.headline)
+                .padding()
+            
+            Text(track.description)
+                .multilineTextAlignment(.leading)
+                .padding()
+            
+            Button(favorites.contains(track) ? "Remove from Favorites" : "Add to Favorites") {
+                if self.favorites.contains(track) {
+                    self.favorites.remove(track)
+                } else {
+                    self.favorites.add(track)
+                }
+            }
+                .padding()
+            
+            Spacer()
+        }
     }
-  }
 }
 
 struct ContentView_Previews: PreviewProvider {
