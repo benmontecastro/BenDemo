@@ -24,7 +24,7 @@ struct ContentView: View {
             .padding(5)
         
         NavigationView {
-            List(tracks.filter( { searchString.isEmpty ? true : $0.trackName.contains(searchString) } ), id: \.trackId) {
+            List(tracks.filter( { self.isFavoritesOnly ? $0.isFavorite() : searchString.isEmpty ? true : $0.trackName.contains(searchString) } ), id: \.trackId) {
                 track in
                 NavigationLink(destination: DetailView(track: track)) {
                     HStack {
@@ -56,12 +56,14 @@ struct ContentView: View {
             .navigationBarTitle("Tracks", displayMode: .inline)
             .navigationBarItems(trailing:
                 Button(action: {
-                    print("Show Favorites")
+                    self.isFavoritesOnly = !self.isFavoritesOnly
                 }) {
-                    Image(systemName: "star.fill").imageScale(.large)
-                        .foregroundColor(.green)
+                    Image(systemName: "star.fill").imageScale(.medium)
+                        .foregroundColor( self.isFavoritesOnly ? .green : .gray )
+                        .border( self.isFavoritesOnly ? Color.green : Color.gray )
                 }
             )
+            .listStyle(PlainListStyle())
             .onAppear(perform: loadTracks)
         }
         .environmentObject(favorites)

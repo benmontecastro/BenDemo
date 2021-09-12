@@ -18,11 +18,9 @@ class Track {
     let description: String
     let imageUrl: URL
     
-    
     //
     // MARK: - Variables And Properties
     //
-    var favorite = false
     var imageName: String = "iPhone 29x29pt"
     var image: Image {
         Image(imageName)
@@ -40,5 +38,12 @@ class Track {
         self.genre = genre
         self.description = description
         self.imageUrl = imageUrl
+    }
+    
+    //
+    // MARK: - Internal Methods
+    //
+    func isFavorite() -> Bool {
+        return Favorites().contains(self)
     }
 }
