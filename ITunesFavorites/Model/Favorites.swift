@@ -20,12 +20,12 @@ class Favorites: ObservableObject {
     //
     init() {
         /// Load save data, if any, then exit
-        let defaults = UserDefaults.standard
-        if (defaults.object(forKey: saveKey) as? [Int]) != nil {
-            let favoritesArray = defaults.object(forKey: saveKey) as? [Int]
+        let userRepository: UserRepository = UserRepository()
+        if userRepository.getFavoriteTracks() != nil {
+            let favoritesArray = userRepository.getFavoriteTracks()
             favoriteTracks = Set(favoritesArray ?? [])
             return
-        }        
+        }
 
         /// Initialize, if no saved data
         self.favoriteTracks = []
@@ -52,7 +52,6 @@ class Favorites: ObservableObject {
 
     /// Save favorites to UserDefaults
     func save() {
-        let defaults = UserDefaults.standard
-        defaults.set(Array(favoriteTracks), forKey: saveKey)
+        UserRepository().saveFavoriteTracks(favorites: Array(favoriteTracks))
     }
 }

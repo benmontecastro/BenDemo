@@ -20,6 +20,8 @@ struct ContentView: View {
     }
     
     var body: some View {
+        HeaderView()
+        
         SearchBarView(searchText: $searchString)
             .padding(5)
         
