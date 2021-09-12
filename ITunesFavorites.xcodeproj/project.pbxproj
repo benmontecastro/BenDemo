@@ -15,6 +15,7 @@
 		B4A9C06D26EC6DEA00B7F6A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A9C06B26EC6DEA00B7F6A6 /* LaunchScreen.storyboard */; };
 		B4A9C07726EC763500B7F6A6 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9C07626EC763500B7F6A6 /* Track.swift */; };
 		B4A9C07D26ECA89300B7F6A6 /* TrackQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9C07C26ECA89300B7F6A6 /* TrackQuery.swift */; };
+		B4A9C08026ED923000B7F6A6 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9C07F26ED923000B7F6A6 /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B4A9C06E26EC6DEA00B7F6A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A9C07626EC763500B7F6A6 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		B4A9C07C26ECA89300B7F6A6 /* TrackQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackQuery.swift; sourceTree = "<group>"; };
+		B4A9C07F26ED923000B7F6A6 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				B4A9C06026EC6DE900B7F6A6 /* AppDelegate.swift */,
 				B4A9C06226EC6DE900B7F6A6 /* SceneDelegate.swift */,
 				B4A9C06426EC6DE900B7F6A6 /* ContentView.swift */,
+				B4A9C07F26ED923000B7F6A6 /* SearchBarView.swift */,
 				B4A9C06626EC6DEA00B7F6A6 /* Assets.xcassets */,
 				B4A9C06B26EC6DEA00B7F6A6 /* LaunchScreen.storyboard */,
 				B4A9C06E26EC6DEA00B7F6A6 /* Info.plist */,
@@ -171,6 +174,7 @@
 				B4A9C06326EC6DE900B7F6A6 /* SceneDelegate.swift in Sources */,
 				B4A9C07D26ECA89300B7F6A6 /* TrackQuery.swift in Sources */,
 				B4A9C06526EC6DE900B7F6A6 /* ContentView.swift in Sources */,
+				B4A9C08026ED923000B7F6A6 /* SearchBarView.swift in Sources */,
 				B4A9C07726EC763500B7F6A6 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

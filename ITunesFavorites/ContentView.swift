@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var searchString: String = ""
     @State var tracks: [Track] = []
-    
+
     let trackQuery = TrackQuery()
     func loadTracks() {
         self.tracks = trackQuery.tracksData
     }
     
     var body: some View {
+        SearchBarView(searchText: $searchString)
+            .padding(5)
+        
         NavigationView {
-            List(tracks, id: \.trackId) {
+            List(tracks.filter( { searchString.isEmpty ? true : $0.trackName.contains(searchString) } ), id: \.trackId) {
                 track in
                 NavigationLink(destination: DetailView(track: track)) {
                     HStack {
@@ -43,7 +47,8 @@ struct ContentView: View {
             .navigationBarTitle("Tracks")
             .onAppear(perform: loadTracks)
         }
-        
+
+        Spacer()
     }
 }
 
