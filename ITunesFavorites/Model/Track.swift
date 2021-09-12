@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/// Track (Itunes data item) model
 class Track {
     let trackId: Int
     let trackName: String
@@ -21,6 +22,7 @@ class Track {
     //
     // MARK: - Variables And Properties
     //
+    /// Not used - delete later
     var imageName: String = "ico_placeholder"
     var image: Image {
         Image(imageName)

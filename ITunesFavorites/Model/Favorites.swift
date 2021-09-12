@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Favorites model with Observable protocol so can be shared across multiple views
 class Favorites: ObservableObject {
     let saveKey = "Favorites"
     

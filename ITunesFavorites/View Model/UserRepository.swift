@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// UserDefaults get/set helper
 class UserRepository {
     //
     // MARK: - Variables And Properties

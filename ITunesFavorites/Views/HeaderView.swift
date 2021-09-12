@@ -11,6 +11,7 @@ struct HeaderView: View {
     let saveKey = "DateOfLastVisit"
     let dateFormatter: DateFormatter = DateFormatter()
     
+    /// Private properties that causes view refresh
     @State var dateOfLastVisit: Date = UserRepository().getDateOfLastVisit() ?? Date()
     
     init() {

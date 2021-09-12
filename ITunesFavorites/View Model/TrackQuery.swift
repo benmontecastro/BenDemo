@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// HTTP session helper
 class TrackQuery {
     //
     // MARK: - Constants

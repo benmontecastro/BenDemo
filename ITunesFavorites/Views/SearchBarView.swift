@@ -10,7 +10,10 @@ import SwiftUI
 struct SearchBarView: View {
     let saveKey = "SearchText"
     
+    /// Binding wrapper to reference from parent view
     @Binding var searchText: String
+    
+    /// Private properties that causes view refresh
     @State var isEditing = false
     
     func saveSearchText() {

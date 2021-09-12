@@ -10,7 +10,10 @@ import SwiftUI
 struct TrackImageView: View {
     var urlString: String
     
+    /// Shared across this view and its subviews
     @ObservedObject var imageLoader = TrackImageLoader()
+    
+    /// Private properties that causes view refresh
     @State var image: UIImage = UIImage(named: "ico_placeholder") ?? UIImage()
     
     var body: some View {

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    /// Shared across this view and its subviews
     @ObservedObject var favorites = Favorites()
     
+    /// Private properties that causes view refresh
     @State var searchString: String = ""
     @State var tracks: [Track] = []
     @State var isFavoritesOnly = false
@@ -25,9 +27,12 @@ struct ContentView: View {
         SearchBarView(searchText: $searchString)
             .padding(5)
         
+        /// Navigation view controller
         NavigationView {
+            /// Navigation Master Table view - TODO: extract as SwiftUI view
             List(tracks.filter( { self.isFavoritesOnly ? $0.isFavorite() : searchString.isEmpty ? true : $0.trackName.contains(searchString) } ), id: \.trackId) {
                 track in
+                /// Navigation Detail view - TODO: extract as SwiftUI view
                 NavigationLink(destination: DetailView(track: track)) {
                     HStack {
                         TrackImageView(urlString: track.imageUrl.absoluteString)
@@ -74,8 +79,11 @@ struct ContentView: View {
     }
 }
 
+/// Navigation Detail view - TODO: separate as SwiftUI view
 struct DetailView: View {
+    /// Shared within the app
     @EnvironmentObject var favorites: Favorites
+    
     let track: Track
     var body: some View {
         VStack {

@@ -7,7 +7,9 @@
 
 import UIKit
 
+/// Image loading helper with Observable protocol so can be shared across multiple views
 class TrackImageLoader: ObservableObject {
+    /// Published property wrapper to cause change notification
     @Published var image: UIImage = UIImage()
     
     func loadImage(for urlString: String) {
