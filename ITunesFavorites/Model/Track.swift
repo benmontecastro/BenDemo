@@ -21,7 +21,7 @@ class Track {
     //
     // MARK: - Variables And Properties
     //
-    var imageName: String = "iPhone 29x29pt"
+    var imageName: String = "ico_placeholder"
     var image: Image {
         Image(imageName)
     }

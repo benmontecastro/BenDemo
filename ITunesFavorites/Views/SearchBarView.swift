@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct SearchBarView: View {
+    let saveKey = "SearchText"
+    
     @Binding var searchText: String
     @State var isEditing = false
+    
+    func saveSearchText() {
+        let defaults = UserDefaults.standard
+        defaults.set(self.searchText, forKey: saveKey)
+    }
     
     var body: some View {
         HStack {
@@ -45,7 +52,7 @@ struct SearchBarView: View {
                 Button(action: {
                     self.isEditing = false
                     self.searchText = ""
-
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }) {
                     Text("Cancel")
                 }
@@ -54,6 +61,7 @@ struct SearchBarView: View {
                 .animation(.default)
             }
         }
+        .onAppear(perform: saveSearchText)
     }
 }
 

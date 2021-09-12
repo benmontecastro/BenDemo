@@ -28,8 +28,8 @@ struct ContentView: View {
                 track in
                 NavigationLink(destination: DetailView(track: track)) {
                     HStack {
-                        track.image
-                            .frame(width: 30, height: 30)
+                        TrackImageView(urlString: track.imageUrl.absoluteString)
+
                         VStack {
                             HStack {
                                 Text("\(track.trackName)")
@@ -46,7 +46,7 @@ struct ContentView: View {
                                     .font(.subheadline)
                                     .multilineTextAlignment(.leading)
                                 Spacer()
-                                Text("\(track.currency)\(track.price, specifier: "%0.2f")")
+                                Text("\(track.currency) \(track.price, specifier: "%0.2f")")
                                     .font(.subheadline)
                             }
                         }
