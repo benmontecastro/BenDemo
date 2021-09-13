@@ -29,35 +29,12 @@ struct ContentView: View {
         
         /// Navigation view controller
         NavigationView {
-            /// Navigation Master Table view - TODO: extract as SwiftUI view
+            /// Navigation Master Table view
             List(tracks.filter( { self.isFavoritesOnly ? $0.isFavorite() : searchString.isEmpty ? true : $0.trackName.contains(searchString) } ), id: \.trackId) {
                 track in
-                /// Navigation Detail view - TODO: extract as SwiftUI view
-                NavigationLink(destination: DetailView(track: track)) {
-                    HStack {
-                        TrackImageView(urlString: track.imageUrl.absoluteString)
-
-                        VStack {
-                            HStack {
-                                Text("\(track.trackName)")
-
-                                Spacer()
-                                
-                                if self.favorites.contains(track) {
-                                    Image(systemName: "star.fill")
-                                        .foregroundColor(.green)
-                                }
-                            }
-                            HStack {
-                                Text("\(track.genre)")
-                                    .font(.subheadline)
-                                    .multilineTextAlignment(.leading)
-                                Spacer()
-                                Text("\(track.currency) \(track.price, specifier: "%0.2f")")
-                                    .font(.subheadline)
-                            }
-                        }
-                    }
+                /// Navigation Detail view
+                NavigationLink(destination: TrackDetailView(track: track)) {
+                    TrackRowView(track: track)
                 }
             }
             .navigationBarTitle("Tracks", displayMode: .inline)
@@ -76,36 +53,6 @@ struct ContentView: View {
         .environmentObject(favorites)
         
         Spacer()
-    }
-}
-
-/// Navigation Detail view - TODO: separate as SwiftUI view
-struct DetailView: View {
-    /// Shared within the app
-    @EnvironmentObject var favorites: Favorites
-    
-    let track: Track
-    var body: some View {
-        VStack {
-            Text("\(track.trackName)")
-                .font(.headline)
-                .padding()
-            
-            Text(track.description)
-                .multilineTextAlignment(.leading)
-                .padding()
-            
-            Button(favorites.contains(track) ? "Remove from Favorites" : "Add to Favorites") {
-                if self.favorites.contains(track) {
-                    self.favorites.remove(track)
-                } else {
-                    self.favorites.add(track)
-                }
-            }
-                .padding()
-            
-            Spacer()
-        }
     }
 }
 

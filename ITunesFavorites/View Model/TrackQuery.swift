@@ -109,7 +109,7 @@ class TrackQuery {
             let currency = trackDictionary["currency"] as? String,
             let genre = trackDictionary["primaryGenreName"] as? String,
             let description = trackDictionary["longDescription"] as? String,
-            let imageURLString = trackDictionary["artworkUrl30"] as? String,
+            let imageURLString = trackDictionary["artworkUrl60"] as? String,
             let imageURL = URL(string: imageURLString) {
             tracksData.append(Track(id: id, name: name, artist: artist, price: price, currency: currency, genre: genre, description: description, imageUrl: imageURL))
         } else {

@@ -19,8 +19,8 @@ struct TrackImageView: View {
     var body: some View {
         Image(uiImage: image)
             .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 30, height: 30)
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 50, height: 50)
             .onReceive(imageLoader.$image, perform: { image in
                 self.image = image
             })

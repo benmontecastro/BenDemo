@@ -21,6 +21,8 @@
 		B4A9C09E26EE0C8600B7F6A6 /* TrackImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9C09D26EE0C8600B7F6A6 /* TrackImageView.swift */; };
 		B4A9C0A126EE24B100B7F6A6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9C0A026EE24B100B7F6A6 /* HeaderView.swift */; };
 		B4A9C0A426EE25DE00B7F6A6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9C0A326EE25DE00B7F6A6 /* UserRepository.swift */; };
+		B4A9C0A826EEFAA100B7F6A6 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9C0A726EEFAA100B7F6A6 /* TrackDetailView.swift */; };
+		B4A9C0AB26EF054700B7F6A6 /* TrackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9C0AA26EF054700B7F6A6 /* TrackRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		B4A9C09D26EE0C8600B7F6A6 /* TrackImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackImageView.swift; sourceTree = "<group>"; };
 		B4A9C0A026EE24B100B7F6A6 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		B4A9C0A326EE25DE00B7F6A6 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		B4A9C0A726EEFAA100B7F6A6 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
+		B4A9C0AA26EF054700B7F6A6 /* TrackRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				B4A9C07626EC763500B7F6A6 /* Track.swift */,
-				B4A9C09426EDC28E00B7F6A6 /* Favorites.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,6 +108,7 @@
 		B4A9C07A26ECA47700B7F6A6 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				B4A9C09426EDC28E00B7F6A6 /* Favorites.swift */,
 				B4A9C07C26ECA89300B7F6A6 /* TrackQuery.swift */,
 				B4A9C09A26EE0B9400B7F6A6 /* TrackImageLoader.swift */,
 				B4A9C0A326EE25DE00B7F6A6 /* UserRepository.swift */,
@@ -116,9 +120,11 @@
 			isa = PBXGroup;
 			children = (
 				B4A9C06426EC6DE900B7F6A6 /* ContentView.swift */,
-				B4A9C07F26ED923000B7F6A6 /* SearchBarView.swift */,
-				B4A9C09D26EE0C8600B7F6A6 /* TrackImageView.swift */,
 				B4A9C0A026EE24B100B7F6A6 /* HeaderView.swift */,
+				B4A9C07F26ED923000B7F6A6 /* SearchBarView.swift */,
+				B4A9C0A726EEFAA100B7F6A6 /* TrackDetailView.swift */,
+				B4A9C09D26EE0C8600B7F6A6 /* TrackImageView.swift */,
+				B4A9C0AA26EF054700B7F6A6 /* TrackRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,10 +202,12 @@
 				B4A9C0A426EE25DE00B7F6A6 /* UserRepository.swift in Sources */,
 				B4A9C09B26EE0B9400B7F6A6 /* TrackImageLoader.swift in Sources */,
 				B4A9C06126EC6DE900B7F6A6 /* AppDelegate.swift in Sources */,
+				B4A9C0A826EEFAA100B7F6A6 /* TrackDetailView.swift in Sources */,
 				B4A9C09E26EE0C8600B7F6A6 /* TrackImageView.swift in Sources */,
 				B4A9C06326EC6DE900B7F6A6 /* SceneDelegate.swift in Sources */,
 				B4A9C07D26ECA89300B7F6A6 /* TrackQuery.swift in Sources */,
 				B4A9C0A126EE24B100B7F6A6 /* HeaderView.swift in Sources */,
+				B4A9C0AB26EF054700B7F6A6 /* TrackRowView.swift in Sources */,
 				B4A9C06526EC6DE900B7F6A6 /* ContentView.swift in Sources */,
 				B4A9C09526EDC28E00B7F6A6 /* Favorites.swift in Sources */,
 				B4A9C08026ED923000B7F6A6 /* SearchBarView.swift in Sources */,
