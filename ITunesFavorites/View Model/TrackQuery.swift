@@ -8,7 +8,7 @@
 import Foundation
 
 /// HTTP session helper
-class TrackQuery {
+class TrackQuery: ObservableObject {
     //
     // MARK: - Constants
     //
@@ -17,10 +17,13 @@ class TrackQuery {
     //
     // MARK: - Variables And Properties
     //
+    @Published var tracksData: [Track] = []
+    @Published var searchString: String = ""
+    @Published var isFavoritesOnly = false
+
     var dataTask: URLSessionDataTask?
     var errorMessage = ""
-    var tracksData: [Track] = []
-    
+
     //
     // MARK: - Type Alias
     //
@@ -36,6 +39,9 @@ class TrackQuery {
                 self.tracksData = results
             }
         }
+        let userRepository = UserRepository()
+        self.searchString = userRepository.getSearchText() ?? ""
+        self.isFavoritesOnly = userRepository.getShowFavorites() ?? false
     }
     
     //

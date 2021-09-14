@@ -16,11 +16,6 @@ struct SearchBarView: View {
     /// Private properties that causes view refresh
     @State var isEditing = false
     
-    func saveSearchText() {
-        let defaults = UserDefaults.standard
-        defaults.set(self.searchText, forKey: saveKey)
-    }
-    
     var body: some View {
         HStack {
             TextField("Search", text: $searchText)
@@ -64,7 +59,6 @@ struct SearchBarView: View {
                 .animation(.default)
             }
         }
-        .onAppear(perform: saveSearchText)
     }
 }
 

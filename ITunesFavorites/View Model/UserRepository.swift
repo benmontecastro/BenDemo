@@ -13,6 +13,8 @@ class UserRepository {
     // MARK: - Variables And Properties
     //
     var userDefaults: UserDefaults
+    var searchString: String? = ""
+    var isFavoritesOnly: Bool? = false
     
     //
     // MARK: - Initialization
@@ -52,7 +54,7 @@ class UserRepository {
         return userDefaults.object(forKey: "SearchText") as? String ?? ""
     }
     
-    func saveShowFavorites(text: String) {
+    func saveSearchText(text: String) {
         userDefaults.set(text, forKey: "SearchText")
     }
 
