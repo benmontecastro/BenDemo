@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-/// Track (Itunes data item) model
-class Track {
+/// Track (Itunes data item) model with Observable protocol so can be shared across multiple views
+class Track: ObservableObject {
     let trackId: Int
     let trackName: String
     let artistName: String

@@ -12,9 +12,14 @@ struct ContentView: View {
     @ObservedObject var viewModel: TrackQuery
     @ObservedObject var favorites = Favorites()
     
+    // Used for detecting when this scene is backgrounded and isn't currently visible.
+    @Environment(\.scenePhase) private var scenePhase
+
     /// Private properties that causes view refresh
     @State var searchString: String = ""
     @State var isFavoritesOnly = false
+    
+    @SceneStorage("trackId") private var trackId: String?
     
     init(viewModel: TrackQuery) {
         self.viewModel = viewModel

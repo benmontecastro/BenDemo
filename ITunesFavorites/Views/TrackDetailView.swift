@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct TrackDetailView: View {
+    @ObservedObject var track: Track
+    
     /// Shared within the app
     @EnvironmentObject var favorites: Favorites
     
-    let track: Track
+
     var body: some View {
         VStack {
             Text("\(track.trackName)")
